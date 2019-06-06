@@ -1,0 +1,47 @@
+<%include ./static/header.ejs %>
+<%include ./static/sidebar.ejs%>
+<%include ./static/navbar.ejs%>
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+
+  <div class="container-fluid">
+    <div class="row">
+      <h3>Nuevo anuncio</h3>
+    </div>
+    <!-- form start -->
+    <form  method="POST">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="form-group">
+            <label for="Titulo">Empleado</label>
+            <input readonly type="text" class="form-control" id="empleado" name="empleado"
+              value="<%= data.nombreEmpleado%>" name="empleado">
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <div class="form-group">
+            <label for="Titulo">Gafete</label>
+            <input readonly type="text" class="form-control" id="gafete" name="gafete" value="<%= data.numeroEmpleado%>"
+              name="gafete">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+         <div class="col-lg-3 mb-4">
+        <button formaction="/alta_anuncio/anuncio" type="submit"  class="btn btn-primary btn-block">Anuncio</button>
+      </div>
+      <div class="col-lg-3 mb-4">
+          <button formaction="/alta_anuncio/archivo" type="submit"  class="btn btn-primary btn-block">Archivo</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <!-- /.container-fluid -->
+</div>
+<!-- End of Main Content -->
+
+<% include ./static/footer.ejs%>

@@ -1,0 +1,192 @@
+<%include ./static/header.ejs %>
+<%include ./static/sidebar.ejs%>
+<%include ./static/navbar.ejs%>
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+
+  <div class="container-fluid">
+
+    <div class="row">
+      <!-- Carousel -->
+      <div class="col-lg-8">
+
+        <div class="mb-2 ">
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner  ">
+              <div class="carousel-item active ">
+                <img class="d-block w-100 image-carousel center-block" src="/img/tristone_calderas.jpg" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100 image-carousel center-block" src="/img/delicias_reloj.jpg" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100 image-carousel center-block" src="/img/delicias_teatro.png" alt="fourth slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100 image-carousel center-block" src="/img/rosales_presa.jpg" alt="fifth slide">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Carousel -->
+      <!-- Mapa -->
+      <div class="col-lg-4">
+        <div id="world-map-markers" style="height: 300px;"></div>
+      </div>
+      <!-- /Mapa -->
+    </div>
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="alert alert-secondary" role="alert">
+          <h5>Tristone Flowtech Mexico - Anuncios</h5>
+        </div>
+        <div class="row">
+          <!-- Collapse -->
+          <div class="col-lg-12">
+
+            <div class="card shadow mb-4 shadow-lg">
+              <div class="card-header py-3">
+                <strong>Anuncios</strong>
+              </div>
+              <div class="accordion" id="accordionExample">
+                <table class="table table-hover" id="myTable">
+                  <thead>
+                    <th> <span class="text-primary fas fa-lightbulb"></span> ID</th>
+                    <th><span class="text-primary fas fa-bullhorn"></span> Anuncio</th>
+                    <th><span class="text-primary far fa-calendar-alt"></span> Fecha</th>
+                  </thead>
+                  <tbody>
+                  <% for(let i = 0;i < data.length;i++){ %>
+                  <%
+                    let date = data[i].an_fecha
+                    let formatted_date = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear()
+                      %>
+                    <tr>
+                      <td><%=data[i].an_id%></td>
+                      <td>
+                        <button class="btn collapsed" type="button" data-toggle="collapse"
+                          data-target="#collapse<%=data[i].an_id%>" aria-expanded="false"
+                          aria-controls="collapse<%=data[i].an_id%>">
+                          <%=data[i].an_titulo%>
+                        </button>
+                        <div id="collapse<%=data[i].an_id%>" class="collapse" aria-labelledby="headingOne"
+                          data-parent="#accordionExample">
+                          <div class="card-body">
+                            <%=(data[i].an_anuncio);%>
+                          </div>
+                        </div>
+                      </td>
+                      <td><%=formatted_date%></td>
+                      <%  } %>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- /Collapse -->
+        </div>
+      </div>
+
+      <!-- Tarjeta Info -->
+      <div class="col-lg-3">
+
+        <div class="card shadow mb-4 shadow-lg">
+          <div class="card-header py-3">
+            <h6><img id="logo_index" src="/img/TristoneLogo.png" alt=""> Informacion general</h6>
+          </div>
+          <ul>
+            <div class="card-body">
+              <strong>Links</strong>
+            </div>
+            <li>
+              <a href="http://tristone.com" target="_blank">Tristone Homepage</a>
+            </li>
+            <li>
+              <a href="http://sharepoint" target="_blank">Sharepoint</a>
+            </li>
+            <li>
+              <a href="http://sharepoint/hr/Shared%20Documents/Policies/Code%20of%20Conduct/20190128_Code%20of%20Conduct%20TRISTONE%20Update%20Jan%202019_FINAL.pdf"
+                target="_blank">Code of conduct</a>
+            </li>
+            <li>
+              <a href="https://mexico.autonews.com/">Automotive News Mexico</a>
+            </li>
+            <li>
+              <!-- Button trigger modal -->
+              <a href="#" data-toggle="modal" data-target="#exampleModal">Organigrama</a>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-full" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Organigrama Tristone Mexico</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div id="chart-container"></div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <!-- Divider -->
+          <hr>
+          <!-- /Divider -->
+          <ul>
+            <div class="card-body">
+              <strong>Soporte IT</strong>
+            </div>
+            <li>
+              <a href="http://tftdelsrv001:9675/portal/portal-login" target="_blank">Del.Helpdesk</a>
+            </li>
+          </ul>
+          <hr>
+          <ul>
+            <div class="card-body">
+              <strong>Informacion de contacto</strong>
+            </div>
+            <li>Direccion: Carretera Jimenez Chihuahua Km.135</li>
+            <li>CP:33015</li>
+            <li>Ciudad: Delicias, Chihuahua</li>
+            <li>Pais: Mexico</li>
+            <li>Telefono: 639-132-6000</li>
+            <li>Correos:<ul>
+                <li><a href="mailto:Del.HR@tristone.com">Del.HR@tristone.com</a></li>
+                <li><a href="mailto:Del.Quejas@tristone.com">Del.Quejas@tristone.com</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- /Tarjeta Info -->
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+      <div class="col-lg-8 text-center">
+        <iframe  id="PDF" title="PDF" src="/uploads/anuncio.pdf" frameborder="1" scrolling="auto" height="800" width="100%"></iframe>
+      </div>
+      <div class="col-2"></div>
+    </div>
+    <!-- /.container-fluid -->
+  </div>
+  <!-- End of Main Content -->
+  <!-- Vector Maps -->
+
+  <% include ./static/footer.ejs%>
+  <!-- Vector map -->
+  <script src="/resources/jvectormap/jvectormap-custom.js"></script>
+  <!-- OrgCharts -->
+  <script src="/resources/orgChart/jquery.orgchart.js"></script>
+  <script src="/js/orgChartjs.js"></script>

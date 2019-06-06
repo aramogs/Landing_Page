@@ -1,0 +1,39 @@
+.img-logo {
+  width: 15%;
+  height: 15%;
+}
+
+body {
+  font-size: 80%;
+}
+
+.sidebar-dark {
+  background-image: url("/img/sidebar.png"), linear-gradient(rgb(66, 66, 66), rgb(0, 9, 51));
+  background-size: cover;
+}
+
+.carousel-item {
+  height: 300px;
+  border-radius: 3%
+}
+
+.carousel-inner img {
+
+  margin: auto;
+  
+  }
+
+#logo_index {
+  width: 100px
+}
+
+/* Modal */
+
+.modal-full {
+  min-width: 100%;
+  margin: 0;
+}
+
+.modal-full .modal-content {
+  min-height: 100vh;
+}
