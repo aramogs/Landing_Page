@@ -1,0 +1,36 @@
+<%include ./static/header.ejs %>
+<%include ./static/sidebar.ejs%>
+<%include ./static/navbar.ejs%>
+
+<div class="col-xl-12 jumbotron jumbotron-fluid animated bounceInDown">
+    <div class="container">
+        <img src="/img/TristoneLogo.png" class="img-logo rounded mx-auto d-block" alt="Tristone Flowtech">
+        <h1 class="display-4 text-center">Directorio Tristone</h1>
+        <p class="lead text-center">Extension Guardada</p>
+
+
+        <div class="card bg-light  ">
+            <div class=" card-header text-white bg-success text-center">Extension</div>
+            <div class="card-body">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <td>Extension</td>
+                            <td><%= data.extension%></td>
+                        </tr>
+                        <tr>
+                            <td>Nombre</td>
+                            <td><%= data.nombre%></td>
+                        </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, '/');
+    }
+</script>
+
+<% include ./static/footer.ejs%>

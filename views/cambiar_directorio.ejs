@@ -1,0 +1,122 @@
+<%include ./static/header.ejs %>
+<%include ./static/sidebar.ejs%>
+<%include ./static/navbar.ejs%>
+
+<div class="col-md-6 col-lg-10-2">
+    <!-- general form elements -->
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Nueva Extension</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form method="POST">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        <label for="Titulo">Extension</label>
+                        <input type="text" class="form-control" id="extension" name="extension" required>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="Titulo">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2">
+                    <button formaction="/guardar_directorio" type="submit"
+                        class="btn btn-primary btn-block">Guardar</button>
+                </div>
+
+        </form>
+    </div>
+</div>
+</div>
+<!-- /.box -->
+
+<!-- /.box ------------------------------------------------------>
+
+<div class="col-sm-2 col-sm-6 col-sm-2">
+
+
+    <!-- /.box-header -->
+    <div class="table table-responsive text-center" id="table">
+        <table id="myTable2" class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <th>Nombre</th>
+                <th>Extension</th>
+                <th></th>
+                <th></th>
+
+
+            </thead>
+
+            <tbody>
+                <%if(data2) { %>
+                <% for (var i = 0; i < data2.length; i++) { %>
+                <tr class="table_roww">
+                    <td><%= data2[i].del_nombre%></td>
+                    <td><%= data2[i].del_extension%></td>
+                    <td>
+                        <form method="POST">
+
+                            <button name="extension" type="submit" formaction="/cambiar_directorio2"
+                                class="btn btn-success">Cambiar</button>
+                            <input type="text" name="extension2" value="<%= data2[i].del_extension%>" hidden>
+                            <input type="text" name="nombre2" value="<%= data2[i].del_nombre%>" hidden>
+                        </form>
+
+                    </td>
+
+                    <td>
+                        <form method="POST">
+
+                            <button name="extension" type="submit" formaction="/eliminar_directorio"
+                                class="btn btn-danger">Eliminar</button>
+                            <input type="text" name="extension3" value="<%=data2[i].del_extension%>" hidden>
+                        </form>
+
+                    </td>
+
+
+                </tr>
+                <% } %>
+                <% } %>
+            </tbody>
+        </table>
+
+        <% include ./static/footer.ejs%>
+    </div>
+    <!-- /.box ------------------------------------------------------>
+
+    </body>
+
+    </html>
+
+
+    <script>
+
+        $('#myTable2').dataTable({
+            "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+
+            "pageLength": 7,
+            "ordering": false,
+            "bPaginate": true,
+            "bLengthChange": false,
+            "bFilter": true,
+            "bInfo": false,
+            "bAutoWidth": false,
+            responsive: true,
+            rowGroup: {
+                dataSrc: 'group'
+            },
+            rowReorder: true,
+            select: true,
+            autoFill: true
+
+
+        });
+    </script>

@@ -1,19 +1,19 @@
 <%include ./static/header.ejs %>
 <%include ./static/sidebar.ejs%>
 <%include ./static/navbar.ejs%>
-
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container-fluid"  id="back">
 
   <!-- Page Heading -->
 
   <div class="container-fluid">
 
-    <div class="row">
+      
+    <div class="row ">
       <!-- Carousel -->
-      <div class="col-lg-8">
+      <div class="col-lg-8 ">
 
-        <div class="mb-2 ">
+        <div class="mb-2 animated bounceInLeft slow">
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner  ">
               <div class="carousel-item active ">
@@ -34,19 +34,19 @@
       </div>
       <!-- /Carousel -->
       <!-- Mapa -->
-      <div class="col-lg-4">
+      <div class="col-lg-4 animated bounceInRight slow">
         <div id="world-map-markers" style="height: 300px;"></div>
       </div>
       <!-- /Mapa -->
     </div>
     <div class="row">
       <div class="col-lg-9">
-        <div class="alert alert-secondary" role="alert">
+        <div class="alert alert-secondary animated bounceInLeft slow" role="alert">
           <h5>Tristone Flowtech Mexico - Anuncios</h5>
         </div>
         <div class="row">
           <!-- Collapse -->
-          <div class="col-lg-12">
+          <div class="col-lg-12 animated bounceInLeft slow">
 
             <div class="card shadow mb-4 shadow-lg">
               <div class="card-header py-3">
@@ -96,29 +96,29 @@
       <div class="col-lg-3">
 
         <div class="card shadow mb-4 shadow-lg">
-          <div class="card-header py-3">
-            <h6><img id="logo_index" src="/img/TristoneLogo.png" alt=""> Informacion general</h6>
+          <div class="card-header py-3 ">
+            <h6><img class="animated pulse slow infinite" id="logo_index" src="/img/TristoneLogo.png" alt=""> Informacion general</h6>
           </div>
           <ul>
             <div class="card-body">
-              <strong>Links</strong>
+              <strong><i class="fas fa-link fa-md fa-fw mr-2 text-gray-400"></i>Links</strong>
             </div>
             <li>
-              <a href="http://tristone.com" target="_blank">Tristone Homepage</a>
+              <a href="http://tristone.com" target="_blank"><i class="fas fa-car fa-md fa-fw mr-2 text-gray-400"></i>Tristone Homepage</a>
             </li>
             <li>
-              <a href="http://sharepoint" target="_blank">Sharepoint</a>
+              <a href="http://sharepoint" target="_blank"><i class="fas fa-share fa-md fa-fw mr-2 text-gray-400"></i>Sharepoint</a>
             </li>
             <li>
               <a href="http://sharepoint/hr/Shared%20Documents/Policies/Code%20of%20Conduct/20190128_Code%20of%20Conduct%20TRISTONE%20Update%20Jan%202019_FINAL.pdf"
-                target="_blank">Code of conduct</a>
+                target="_blank"><i class="fas fa-file-alt fa-md fa-fw mr-2 text-gray-400"></i>Code of conduct</a>
             </li>
             <li>
-              <a href="https://mexico.autonews.com/">Automotive News Mexico</a>
+              <a href="https://mexico.autonews.com/"><i class="fas fa-newspaper fa-md fa-fw mr-2 text-gray-400"></i>Automotive News Mexico</a>
             </li>
             <li>
               <!-- Button trigger modal -->
-              <a href="#" data-toggle="modal" data-target="#exampleModal">Organigrama</a>
+              <a href="#" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-sitemap fa-md fa-fw mr-2 text-gray-400"></i>Organigrama</a>
               <!-- Modal -->
               <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
@@ -140,22 +140,66 @@
                 </div>
               </div>
             </li>
+
+            <li>
+              <!-- Button trigger modal -->
+              <a href="#" data-toggle="modal" data-target="#classModal"><i class="fas fa-phone fa-md fa-fw mr-2 text-gray-400"></i>Directorio Telefonico</a>
+              <!-- Modal -->
+              <div id="classModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="classInfo" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Directorio Telefonico Tristone Mexico</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        ×
+                      </button>
+    
+                    </div>
+                    <div class="modal-body">
+                      <table id="classTable"  class="table table-bordered myTable">
+                        <thead>
+                          <th>Nombre</th>
+                          <th>Extension</th>
+                        </thead>
+                        <tbody>
+
+                          <% for (var i = 0; i < data2.length; i++) { %>
+                            <tr>
+                                <td><%= data2[i].del_nombre%></td>
+                                <td><%= data2[i].del_extension%></td>
+                            </tr>
+                  <%}%>
+
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            
           </ul>
           <!-- Divider -->
           <hr>
           <!-- /Divider -->
           <ul>
             <div class="card-body">
-              <strong>Soporte IT</strong>
+              <strong><i class="fas fa-laptop-code fa-md fa-fw mr-2 text-gray-400 animated"></i>Soporte IT</strong>
             </div>
             <li>
-              <a href="http://tftdelsrv001:9675/portal/portal-login" target="_blank">Del.Helpdesk</a>
+              <a href="http://tftdelsrv001:9675/portal/portal-login" target="_blank" id="soporte_it"><i class="fas fa-keyboard fa-md fa-fw mr-2 text-gray-400"></i>Del.Helpdesk</a>
             </li>
           </ul>
           <hr>
           <ul>
             <div class="card-body">
-              <strong>Informacion de contacto</strong>
+              <strong><i class="fas fa-question fa-md fa-fw mr-2 text-gray-400"></i>Informacion de contacto</strong>
             </div>
             <li>Direccion: Carretera Jimenez Chihuahua Km.135</li>
             <li>CP:33015</li>
@@ -163,16 +207,16 @@
             <li>Pais: Mexico</li>
             <li>Telefono: 639-132-6000</li>
             <li>Correos:<ul>
-                <li><a href="mailto:Del.HR@tristone.com">Del.HR@tristone.com</a></li>
-                <li><a href="mailto:Del.Quejas@tristone.com">Del.Quejas@tristone.com</a></li>
+                <li><a href="mailto:Del.HR@tristone.com"><i class="fas fa-user fa-md fa-fw mr-2 text-gray-400"></i>Del.HR@tristone.com</a></li>
+                <li><a href="mailto:Del.Quejas@tristone.com"><i class="fas fa-angry fa-md fa-fw mr-2 text-gray-400"></i>Del.Quejas@tristone.com</a></li>
               </ul>
             </li>
           </ul>
         </div>
       </div>
       <!-- /Tarjeta Info -->
-    </div>
-    <div class="row">
+   </div>  
+    <div class="row animated bounceInDown slow cdelay-1">
         <div class="col-2"></div>
       <div class="col-lg-8 text-center">
         <iframe  id="PDF" title="PDF" src="/uploads/anuncio.pdf" frameborder="1" scrolling="auto" height="800" width="100%"></iframe>
