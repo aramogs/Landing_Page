@@ -18,14 +18,14 @@ var upload = multer( { storage: storage } );
 
 //Routes
 
-router.get('node/', routesController.index_GET);
-router.get('node/login/:id', routesController.login);
-router.get('node/alta_anuncio/login', routesController.alta_anuncio_GET);
-router.post('node/alta_anuncio/tipo', routesController.alta_anuncio_tipo_POST);
-router.post('node/alta_anuncio/anuncio', routesController.alta_anuncio_anuncio_POST);
-router.post('node/alta_anuncio/archivo', routesController.alta_anuncio_archivo_POST);
-router.post('node/guardar_anuncio',routesController.guardar_anuncio_POST);
-router.post('node/guardar_archivo', upload.single('pdf') ,routesController.guardar_archivo_POST);
+router.get('/', routesController.index_GET);
+router.get('/login/:id', routesController.login);
+router.get('/alta_anuncio/login', routesController.alta_anuncio_GET);
+router.post('/alta_anuncio/tipo', routesController.alta_anuncio_tipo_POST);
+router.post('/alta_anuncio/anuncio', routesController.alta_anuncio_anuncio_POST);
+router.post('/alta_anuncio/archivo', routesController.alta_anuncio_archivo_POST);
+router.post('/guardar_anuncio',routesController.guardar_anuncio_POST);
+router.post('/guardar_archivo', upload.single('pdf') ,routesController.guardar_archivo_POST);
 
 router.get('*', (req, res) => {
   res.send('404 Page not found');

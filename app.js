@@ -8,7 +8,7 @@ const app = express();
 
 
 //Declarando puertos a utilizarse
-app.set('port', process.env.PORT)
+app.set('port', process.env.PORT ||3000)
 //Carpeta view y visor ejs
 app.set('views',__dirname + '/views');
 app.set('view_engine', 'ejs');
