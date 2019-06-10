@@ -37,3 +37,11 @@ body {
 .modal-full .modal-content {
   min-height: 100vh;
 }
+
+div#danger-alert {
+  display: none;
+}
+
+.cdelay-1 {
+  animation-delay: 1.25s;
+  }

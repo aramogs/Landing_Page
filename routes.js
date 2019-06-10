@@ -26,6 +26,13 @@ router.post('/alta_anuncio/anuncio', routesController.alta_anuncio_anuncio_POST)
 router.post('/alta_anuncio/archivo', routesController.alta_anuncio_archivo_POST);
 router.post('/guardar_anuncio',routesController.guardar_anuncio_POST);
 router.post('/guardar_archivo', upload.single('pdf') ,routesController.guardar_archivo_POST);
+<<<<<<< HEAD
+=======
+router.post('/cambiar_directorio',routesController.cambiar_directorio_POST);
+router.post('/cambiar_directorio2',routesController.cambiar_directorio2_POST);
+router.post('/guardar_directorio',routesController.guardar_directorio_POST);
+router.post('/eliminar_directorio',routesController.eliminar_directorio_POST);
+>>>>>>> 1719ce957d668e598a81584bda82c532da7d8d98
 
 router.get('*', (req, res) => {
   res.send('404 Page not found');

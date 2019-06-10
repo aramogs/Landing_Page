@@ -1,0 +1,41 @@
+<%include ./static/header.ejs %>
+<%include ./static/sidebar.ejs%>
+<%include ./static/navbar.ejs%>
+
+<div class="col-md-6 col-lg-10-2">
+    <!-- general form elements -->
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Cambiar Extension</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form  method="POST">
+                <div class="row">
+                  <div class="col-lg-2">
+                    <div class="form-group">
+                      <label for="Titulo">Extension</label>
+                      <input type="text" class="form-control" id="extension" name="extension" value="<%= data %>" readonly>
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="form-group">
+                      <label for="Titulo">Nombre</label>
+                      <input type="text" class="form-control" id="nombre" name="nombre" value="<%= data2 %>">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                   <div class="col-lg-2">
+                  <button formaction="/guardar_directorio" type="submit"  class="btn btn-primary btn-block">Guardar</button>
+                </div>
+          
+              </form>
+    </div>
+</div>
+<% include ./static/footer.ejs%>
+</div>
+
+</body>
+
+</html>
