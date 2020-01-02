@@ -13,7 +13,7 @@ app.use(express.static(__dirname + "public"));
 app.use(express.static("public"));
 
 //Requiriendo rutas
-const routes = require('./routes.js');
+const routes = require('./routes/routes');
 //Declarando body parser y sus funciones
 app.use(bodyParser.urlencoded({extended:true}));
 //Declarando rutas de express

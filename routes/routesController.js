@@ -2,8 +2,8 @@
 const controller = {};
 
 //Require Funciones
-const funcion = require('./public/js/controllerFunctions');
-const funcionE = require('./public/js/empleadosFunctions');
+const funcion = require('../public/js/controllerFunctions');
+const funcionE = require('../public/js/empleadosFunctions');
 
 // Index GET
 controller.index_GET = (req, res) => {
@@ -19,6 +19,11 @@ controller.index_GET = (req, res) => {
             });
         });
     });
+};
+
+controller.error_GET = (req, res) => {
+    
+            res.render('404.ejs');
 };
 
 

@@ -30,6 +30,11 @@ router.post('/cambiar_directorio',routesController.cambiar_directorio_POST);
 router.post('/cambiar_directorio2',routesController.cambiar_directorio2_POST);
 router.post('/guardar_directorio',routesController.guardar_directorio_POST);
 router.post('/eliminar_directorio',routesController.eliminar_directorio_POST);
+router.get('/not_found',routesController.error_GET);
+router.get('*', (req, res) => {  
+  res.redirect('http://tftdelsrv001:3000/not_found');
+
+});
 
 
 module.exports = router;
