@@ -22,7 +22,6 @@ controller.index_GET = (req, res) => {
 };
 
 controller.error_GET = (req, res) => {
-    
             res.render('404.ejs');
 };
 
