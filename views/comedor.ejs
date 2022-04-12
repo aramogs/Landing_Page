@@ -1,0 +1,102 @@
+<%include ./static/header.ejs %>
+<%include ./static/sidebar.ejs%>
+<%include ./static/navbar.ejs%>
+
+<div class="col-md-12 col-lg-10-2">
+    <!-- general form elements -->
+    <div class="box box-primary text-center">
+        <div class="box-header with-border ">
+            <h3 class="box-title">Reporte Comedor</h3>
+        </div>
+
+    </div>
+</div>
+<div class="row">
+
+   
+</div>
+
+
+<div class="container">
+
+    <div class="card-header text-dark bg-dark ">
+        <div class="row">
+
+            <div class="col-lg-12  text-center">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="form-group">
+                        <label>Semana</label>
+                        <div>
+                            <input type="text" class="form-control text-center week-picker" name="week"
+                                id="week" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-lg-6 text-center">
+            <div class="form-group">
+                <input type="text" class="form-control text-center" name="startDate" id="startDate"
+                    placeholder="YYYY-MM-DD" value="" hidden>
+            </div>
+        </div>
+        <div class="col-lg-6 text-center">
+            <div class="form-group">
+                <input type="text" class="form-control text-center" name="endDate" id="endDate"
+                    placeholder="YYYY-MM-DD" value="" hidden>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4 text-center mt-2 mb-2">
+            <button class="btn btn-success" id="btnExcelDownloadCon"><span class="fas fa-file-excel 2x"></span> Excel</button>
+        </div>
+        <div class="col-4 text-center mt-2 mb-2"></div>
+
+      
+
+    </div>
+
+</div>
+
+
+<div class="container">
+    <div class="table-responsive mt-2">
+        <div class="containerTable">
+            <div class="table table-responsive" id="table">
+                <table id="table2" class="table table-bordered table-striped table-sm hover text-center">
+                    <thead class="thead-dark">
+
+                        <th width="1%"><span></span> Id</th>
+                        <th width="1%"><span></span> Empleado</th>
+                        <th width="1%"><span></span> Fecha</th>
+     
+
+
+                    </thead>
+
+                    <tbody>
+
+
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.box -->
+
+<!-- /.box ------------------------------------------------------>
+<% include ./static/footer.ejs%>
+
+<script src="/js/comedor.js"></script>

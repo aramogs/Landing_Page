@@ -5,6 +5,8 @@ const app = express();
 
 const db = require('../db/conn');
 
+const dbP = require('../db/connP');
+
 
 
 funcion.controllerIdDepartamento=(departamento,callback)=>{
@@ -66,6 +68,22 @@ funcion.controllerCargarAnuncios=(callback)=>{
 
 }
 
+
+funcion.reporte_comedor = (week_start,week_end) => {
+    return new Promise((resolve, reject) => {
+        dbP(`
+        SELECT 
+            *
+        FROM
+            del_comedor
+       
+            WHERE 
+            (checador_fecha BETWEEN  "${week_start}" AND "${week_end}")
+        `)
+            .then((result) => { resolve(result) })
+            .catch((error) => { reject(error) })
+    })
+}
 
 
 module.exports = funcion;

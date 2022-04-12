@@ -36,7 +36,7 @@ controller.alta_anuncio_GET = (req, res) => {
 controller.login = (req, res) => {
     loginId = req.params.id
 
-    if (loginId == 'cambiar_directorio') {
+    if (loginId == 'cambiar_directorio' || loginId == 'procesos_clave'  || loginId == 'comedor') {
         next = '';
     } else {
         next = '/tipo';
@@ -173,5 +173,41 @@ extension= req.body.extension3
     });
 };
 
+
+
+//POST a cambiar_directorio
+controller.procesos_clave_POST = (req, res) => {
+
+    funcionE.empleadosDirectorio((err, result) => {
+        res.render('procesos_clave.ejs', {
+
+        });
+    });
+};
+
+
+
+controller.comedor_POST = (req, res) => {
+
+    funcionE.empleadosDirectorio((err, result) => {
+        res.render('comedor.ejs', {
+
+        });
+    });
+};
+
+
+controller.reporte_comedor_POST = (req, res) => {
+
+    let fecha_inicial = req.body.fecha_inicial
+    let fecha_final = req.body.fecha_final
+
+    funcion.reporte_comedor(fecha_inicial,fecha_final)
+        .then((result) => {
+           
+            res.json(result)
+        })
+        .catch((err) => { res.json(err) })
+};
 
 module.exports = controller;

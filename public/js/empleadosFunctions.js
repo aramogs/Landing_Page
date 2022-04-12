@@ -3,6 +3,7 @@ const dbE = require('../db/connEmpleados');
 const db = require('../db/conn');
 
 
+
 funcionE.empleadosNombre=(gafete,callback)=>{
     dbE.query(`SELECT emp_nombre FROM del_empleados WHERE emp_id=${gafete}`, function (err, result, fields) {
         if (err) {
@@ -76,6 +77,9 @@ funcionE.empleadosDeleteDirectorio = (extension, callback) => {
         })
 
 }
+
+
+
 
 
 module.exports = funcionE;
